@@ -4,7 +4,7 @@ class Snake {
         this.left = this.element.style.left;
         this.top = this.element.style.top;
         this.isHorizontal = true;
-        this.previousId = "snake-horizontal";
+        this.previousId = "snake-horizontal-right";
     }
 
     // ? functions to move snake
