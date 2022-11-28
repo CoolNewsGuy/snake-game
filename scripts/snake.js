@@ -8,6 +8,7 @@ class Snake {
 
     // ? functions to move snake
     moveUp() {
+        this.isHorizontal = false;
         this.adjustVerticality();
         this.element.id = "snake-vertical-top";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
@@ -32,6 +33,7 @@ class Snake {
     }
 
     moveRight() {
+        this.isHorizontal = true;
         this.adjustHorizontality();
         this.element.id = "snake-horizontal-right";
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
