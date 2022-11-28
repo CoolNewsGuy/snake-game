@@ -22,6 +22,25 @@ body {
     position: relative;
 }
 
+.square-container {
+    height: 70px;
+}
+
+.green-square,
+.black-square {
+    height: 70px;
+    width: 70px;
+    display: inline-block;
+}
+
+.green-square {
+    background: rgb(154, 248, 176);
+}
+
+.black-square {
+    background: rgba(63, 133, 84, 0.438);
+}
+
 .snake {
     display: flex;
     gap: 1px;

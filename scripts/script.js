@@ -25,3 +25,4 @@ function moveSnake(e) {
 
 // event listeners
 addEventListener("keydown", moveSnake);
+addEventListener("load", container.drawSquares());
