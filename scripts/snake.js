@@ -75,11 +75,11 @@ class Snake {
             !this.isAjustedVertically
         ) {
             this.element.style.top =
-                +getComputedStyle(snake.element).top.replace("px", "") -
+                +getComputedStyle(this.element).top.replace("px", "") -
                 25 +
                 "px";
             this.element.style.left =
-                +snake.element.style.left.replace("px", "") + 25 + "px";
+                +this.element.style.left.replace("px", "") + 25 + "px";
             this.isAjustedVertically = true;
         }
     }
