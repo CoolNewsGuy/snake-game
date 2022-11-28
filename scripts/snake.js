@@ -4,7 +4,8 @@ class Snake {
         this.left = this.element.style.left;
         this.top = this.element.style.top;
         this.isHorizontal = true;
-        this.previousId = "snake-horizontal-right";
+        this.currentId = "snake-horizontal-right";
+        this.previousId = "";
     }
 
     // ? functions to move snake
@@ -14,6 +15,8 @@ class Snake {
         this.element.id = "snake-vertical-top";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake - 10 + "px";
+        this.changePreviousId();
+        this.currentId = "snake-vertical-top";
     }
 
     moveDown() {
@@ -22,6 +25,8 @@ class Snake {
         this.element.id = "snake-vertical-bottom";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake + 10 + "px";
+        this.changePreviousId();
+        this.currentId = "snake-vertical-bottom";
     }
 
     moveLeft() {
@@ -33,6 +38,8 @@ class Snake {
             ""
         );
         this.element.style.left = this.left = leftOfSnake - 10 + "px";
+        this.changePreviousId();
+        this.currentId = "snake-horizontal-left";
     }
 
     moveRight() {
@@ -44,6 +51,8 @@ class Snake {
             ""
         );
         this.element.style.left = this.left = leftOfSnake + 10 + "px";
+        this.changePreviousId();
+        this.currentId = "snake-horizontal-right";
     }
 
     /**
@@ -88,6 +97,11 @@ class Snake {
 
             this.isHorizontal = true;
         }
+    }
+
+    changePreviousId() {
+        if (this.currentId !== this.element.id)
+            this.previousId = this.currentId;
     }
 
     /**
