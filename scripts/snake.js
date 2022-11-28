@@ -49,13 +49,13 @@ class Snake {
         this.isHorizontal = true;
         this.isAjustedVertically = false;
         this.element.id = "snake-horizontal-right";
-        this.adjustHorizontality();
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
             "px",
             ""
         );
         this.element.style.left = this.left = leftOfSnake + 10 + "px";
         this.changePreviousId();
+        this.adjustHorizontality();
         this.currentId = "snake-horizontal-right";
     }
 
@@ -117,6 +117,16 @@ class Snake {
         ) {
             this.element.style.left =
                 +this.element.style.left.replace("px", "") - 25 + "px";
+            this.element.style.top =
+                +this.element.style.top.replace("px", "") + 25 + "px";
+            this.isAjustedHorizontally = true;
+        }
+
+        if (
+            this.element.id === "snake-horizontal-right" &&
+            this.previousId === "snake-vertical-bottom" &&
+            !this.isAjustedHorizontally
+        ) {
             this.element.style.top =
                 +this.element.style.top.replace("px", "") + 25 + "px";
             this.isAjustedHorizontally = true;
