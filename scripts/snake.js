@@ -28,7 +28,7 @@ class Snake {
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake + 10 + "px";
         this.changePreviousId();
-        this.adjustHorizontality();
+        this.adjustVerticality();
         this.currentId = "snake-vertical-bottom";
     }
 
@@ -79,18 +79,33 @@ class Snake {
                 25 +
                 "px";
             this.element.style.left =
-                +this.element.style.left.replace("px", "") + 25 + "px";
+                +getComputedStyle(this.element).left.replace("px", "") +
+                25 +
+                "px";
             this.isAjustedVertically = true;
         }
     }
 
     adjustHorizontality() {
         if (
+            this.element.id === "snake-horizontal-left" &&
             this.previousId === "snake-vertical-top" &&
             !this.isAjustedHorizontally
         ) {
             this.element.style.left =
                 +this.element.style.left.replace("px", "") - 25 + "px";
+            this.isAjustedHorizontally = true;
+        }
+
+        if (
+            this.element.id === "snake-horizontal-left" &&
+            this.previousId === "snake-vertical-bottom" &&
+            !this.isAjustedHorizontally
+        ) {
+            this.element.style.left =
+                +this.element.style.left.replace("px", "") - 25 + "px";
+            this.element.style.top =
+                +this.element.style.top.replace("px", "") + 25 + "px";
             this.isAjustedHorizontally = true;
         }
     }
