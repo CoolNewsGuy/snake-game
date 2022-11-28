@@ -17,6 +17,7 @@ class Snake {
 
     moveDown() {
         this.isHorizontal = false;
+        this.adjustVerticality();
         this.element.id = "snake-vertical-bottom";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake + 10 + "px";
@@ -24,6 +25,7 @@ class Snake {
 
     moveLeft() {
         this.isHorizontal = true;
+        this.adjustHorizontality();
         this.element.id = "snake-horizontal-left";
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
             "px",
