@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Snake Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="piece" style="position: absolute; right: 0;"></div>
+        <div class="snake" id="snake-horizontal">
+            <div class="piece head">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="piece" style="background: red;"></div>
+        </div>
+        <div class="apple"></div>
+    </div>
+    <script src="scripts/container.js"></script>
+    <script src="scripts/snake.js"></script>
+    <script src="scripts/apple.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

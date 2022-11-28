@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: rgb(120, 214, 245);
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    background: rgb(154, 248, 176);
+    height: 700px;
+    width: 700px;
+    position: relative;
+}
+
+.snake {
+    display: flex;
+    gap: 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.piece {
+    background: rgb(241, 199, 73);
+    height: 25px;
+    width: 25px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.eye {
+    height: 5px;
+    width: 5px;
+    background: black;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.apple {
+    background: #f00;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#snake-vertical-top {
+    flex-direction: column;
+}
+
+#snake-vertical-bottom {
+    flex-direction: column-reverse;
+}
+
+#snake-horizontal-right {
+    flex-direction: row-reverse;
+}
+
+#snake-horizontal-left {
+    flex-direction: row;
+}
