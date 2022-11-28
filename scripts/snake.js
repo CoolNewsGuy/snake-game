@@ -7,11 +7,13 @@ class Snake {
         this.currentId = "snake-horizontal-right";
         this.previousId = "";
         this.isAjustedVertically = false;
+        this.isAjustedHorizontally = false;
     }
 
     // ? functions to move snake
     moveUp() {
         this.isHorizontal = false;
+        this.isAjustedHorizontally = false;
         this.element.id = "snake-vertical-top";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake - 10 + "px";
@@ -26,19 +28,20 @@ class Snake {
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake + 10 + "px";
         this.changePreviousId();
+        this.adjustHorizontality();
         this.currentId = "snake-vertical-bottom";
     }
 
     moveLeft() {
         this.isHorizontal = true;
         this.element.id = "snake-horizontal-left";
-        this.adjustHorizontality();
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
             "px",
             ""
         );
         this.element.style.left = this.left = leftOfSnake - 10 + "px";
         this.changePreviousId();
+        this.adjustHorizontality();
         this.currentId = "snake-horizontal-left";
     }
 
@@ -66,10 +69,6 @@ class Snake {
         this.element.appendChild(piece);
     }
 
-    /**
-     * First check snake if it's horizontal (moving to right or left).
-     * If it's horizontal, then move it to top by 25px.
-     */
     adjustVerticality() {
         if (
             this.previousId === "snake-horizontal-right" &&
@@ -85,23 +84,14 @@ class Snake {
         }
     }
 
-    /**
-     * First check snake if it's vertical (moving to top or bottom).
-     * If it's vertical, then move it to bottom by 25px.
-     */
     adjustHorizontality() {
-        if (!this.isHorizontal) {
-            if (this.element.id === "snake-vertical-bottom") {
-                this.element.style.top =
-                    +this.element.style.top.replace("px", "") + 25 + "px";
-            }
-
+        if (
+            this.previousId === "snake-vertical-top" &&
+            !this.isAjustedHorizontally
+        ) {
             this.element.style.left =
-                +getComputedStyle(this.element).left.replace("px", "") -
-                25 +
-                "px";
-
-            this.isHorizontal = true;
+                +this.element.style.left.replace("px", "") - 25 + "px";
+            this.isAjustedHorizontally = true;
         }
     }
 
