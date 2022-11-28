@@ -9,21 +9,21 @@ class Snake {
     // ? functions to move snake
     moveUp() {
         this.adjustHorizontality();
-        snake.element.id = "snake-vertical-top";
+        this.element.id = "snake-vertical-top";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake - 10 + "px";
     }
 
     moveDown() {
         this.isHorizontal = false;
-        snake.element.id = "snake-vertical-bottom";
+        this.element.id = "snake-vertical-bottom";
         let topOfSnake = +getComputedStyle(this.element).top.replace("px", "");
         this.element.style.top = this.top = topOfSnake + 10 + "px";
     }
 
     moveLeft() {
         this.isHorizontal = true;
-        snake.element.id = "snake-horizontal-left";
+        this.element.id = "snake-horizontal-left";
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
             "px",
             ""
@@ -33,7 +33,7 @@ class Snake {
 
     moveRight() {
         this.adjustVerticality();
-        snake.element.id = "snake-horizontal-right";
+        this.element.id = "snake-horizontal-right";
         let leftOfSnake = +getComputedStyle(this.element).left.replace(
             "px",
             ""

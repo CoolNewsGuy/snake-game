@@ -19,9 +19,9 @@ function moveSnake(e) {
             break;
 
         case "ArrowRight":
-            // if (snake.element.id === "snake-vertical-bottom")
-            //     snake.element.style.top =
-            //         +snake.element.style.top.replace("px", "") + 25 + "px";
+            if (snake.element.id === "snake-vertical-bottom")
+                snake.element.style.top =
+                    +snake.element.style.top.replace("px", "") + 25 + "px";
             snake.moveRight();
     }
 }
