@@ -71,6 +71,7 @@ class Snake {
 
     adjustVerticality() {
         if (
+            this.element.id === "snake-vertical-top" &&
             this.previousId === "snake-horizontal-right" &&
             !this.isAjustedVertically
         ) {
@@ -78,6 +79,18 @@ class Snake {
                 +getComputedStyle(this.element).top.replace("px", "") -
                 25 +
                 "px";
+            this.element.style.left =
+                +getComputedStyle(this.element).left.replace("px", "") +
+                25 +
+                "px";
+            this.isAjustedVertically = true;
+        }
+
+        if (
+            this.element.id === "snake-vertical-bottom" &&
+            this.previousId === "snake-horizontal-right" &&
+            !this.isAjustedVertically
+        ) {
             this.element.style.left =
                 +getComputedStyle(this.element).left.replace("px", "") +
                 25 +
