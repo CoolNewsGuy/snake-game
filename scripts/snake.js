@@ -79,11 +79,23 @@ class Snake {
         ) {
             this.element.style.top =
                 +getComputedStyle(this.element).top.replace("px", "") -
-                25 +
+                35 +
                 "px";
             this.element.style.left =
                 +getComputedStyle(this.element).left.replace("px", "") +
-                25 +
+                35 +
+                "px";
+            this.isAjustedVertically = true;
+        }
+
+        if (
+            this.element.id === "snake-vertical-top" &&
+            this.previousId === "snake-horizontal-left" &&
+            !this.isAjustedVertically
+        ) {
+            this.element.style.top =
+                +getComputedStyle(this.element).top.replace("px", "") -
+                35 +
                 "px";
             this.isAjustedVertically = true;
         }
@@ -95,7 +107,7 @@ class Snake {
         ) {
             this.element.style.left =
                 +getComputedStyle(this.element).left.replace("px", "") +
-                25 +
+                35 +
                 "px";
             this.isAjustedVertically = true;
         }
@@ -108,7 +120,7 @@ class Snake {
             !this.isAjustedHorizontally
         ) {
             this.element.style.left =
-                +this.element.style.left.replace("px", "") - 25 + "px";
+                +this.element.style.left.replace("px", "") - 35 + "px";
             this.isAjustedHorizontally = true;
         }
 
@@ -118,9 +130,9 @@ class Snake {
             !this.isAjustedHorizontally
         ) {
             this.element.style.left =
-                +this.element.style.left.replace("px", "") - 25 + "px";
+                +this.element.style.left.replace("px", "") - 35 + "px";
             this.element.style.top =
-                +this.element.style.top.replace("px", "") + 25 + "px";
+                +this.element.style.top.replace("px", "") + 35 + "px";
             this.isAjustedHorizontally = true;
         }
 
@@ -130,7 +142,7 @@ class Snake {
             !this.isAjustedHorizontally
         ) {
             this.element.style.top =
-                +this.element.style.top.replace("px", "") + 25 + "px";
+                +this.element.style.top.replace("px", "") + 35 + "px";
             this.isAjustedHorizontally = true;
         }
     }

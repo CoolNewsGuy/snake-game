@@ -51,8 +51,8 @@ body {
 
 .piece {
     background: rgb(241, 199, 73);
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
 }
 
 .head {
@@ -62,8 +62,8 @@ body {
 }
 
 .eye {
-    height: 5px;
-    width: 5px;
+    height: 7px;
+    width: 7px;
     background: black;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -74,8 +74,8 @@ body {
 
 .apple {
     background: #f00;
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     position: absolute;
 }
